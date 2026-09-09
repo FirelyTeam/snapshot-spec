@@ -1,0 +1,6 @@
+# Normalize line endings in the repository; check out as-is on each platform.
+* text=auto
+*.jar binary
+*.tgz binary
+*.zip binary
+*.png binary
