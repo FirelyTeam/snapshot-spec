@@ -1,0 +1,3 @@
+MSG: [Error] : Unable to resolve reference to profile 'http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/finding'
+MSG: [Error] : Unable to resolve reference to profile 'http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/finding'
+MSG: [Error] Observation.component: Element Observation.component defines a slice without a name. Individual slices must always have a unique name, except extensions.

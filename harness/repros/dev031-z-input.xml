@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DEV-031 minimized probe: logical model (specialization of Element) with a new element `a` of type Base
+     whose children a.b / a.c are defined inline by the differential. Question: does .NET emit a.b as `Probe.b`
+     (segment dropped, as in cdshooks-services) or `Probe.a.b`? Variant with type BackboneElement: dev031-logical-bbe-input.xml -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="dev031-z"/>
+  <url value="http://example.org/fhir/StructureDefinition/Dev031Z"/>
+  <name value="Dev031Z"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="http://example.org/fhir/StructureDefinition/Dev031Z"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Dev031Z">
+      <path value="Dev031Z"/>
+      <short value="probe root"/>
+    </element>
+    <element id="Dev031Z.a">
+      <path value="Dev031Z.a"/>
+      <short value="a (type Base) with inline children"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="Base"/>
+      </type>
+    </element>
+    <element id="Dev031Z.a.b">
+      <path value="Dev031Z.a.b"/>
+      <short value="b"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="Dev031Z.a.c">
+      <path value="Dev031Z.a.c"/>
+      <short value="c"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+    <element id="Dev031Z.z"><path value="Dev031Z.z"/><min value="0"/><max value="1"/><type><code value="string"/></type></element>
+  </differential>
+</StructureDefinition>

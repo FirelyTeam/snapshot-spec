@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JI-14 repro, derived profile: re-declares SD.mapping identity "m" for a DIFFERENT uri B / name, and uses
+     "m" (meaning B) on Patient.gender. MappingAssistant (b06c7ee) should rename the base's "m" to "m1" and
+     rewrite the INHERITED element mappings (Patient.active) to m1; the diff mapping on Patient.gender must
+     stay "m". Hypothesis: renames are applied to the diff's mappings instead (merge(derived, base) reversal,
+     PU:3082 / MA:173-177), so Patient.gender's mapping becomes m1 (= Map A, wrong) and Patient.active keeps m
+     (now = Map B, wrong). -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ji14-derived"/>
+  <url value="http://example.org/fhir/StructureDefinition/ji14-derived"/>
+  <name value="JI14Derived"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="m"/>
+    <uri value="http://example.org/maps/B"/>
+    <name value="Map B (declared in the derived profile)"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Patient"/>
+  <baseDefinition value="http://example.org/fhir/StructureDefinition/ji14-base"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Patient.gender">
+      <path value="Patient.gender"/>
+      <mapping>
+        <identity value="m"/>
+        <map value="B.gender (derived mapping, identity m = Map B)"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>

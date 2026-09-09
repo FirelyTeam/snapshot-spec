@@ -1,0 +1,2 @@
+MSG: [ERROR] http://hl7.org/fhir/sushi-test/StructureDefinition/mygenotype.Observation.component: Same id 'Observation.component' on multiple elements Observation.component/Observation.component in http://hl7.org/fhir/sushi-test/StructureDefinition/mygenotype
+MSG: [ERROR] http://hl7.org/fhir/sushi-test/StructureDefinition/mygenotype.Observation.component: Same id 'Observation.component' on multiple elements Observation.component/Observation.component in http://hl7.org/fhir/sushi-test/StructureDefinition/mygenotype

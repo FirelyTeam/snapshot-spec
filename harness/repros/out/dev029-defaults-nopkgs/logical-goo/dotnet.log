@@ -1,0 +1,3 @@
+EXCEPTION: NotSupportedException: Error generating snapshot. Recursive profile dependency detected for profile 'http://example.org/StructureDefinition/Boo' on element 'Goo'.
+Profile url stack:
+Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack

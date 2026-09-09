@@ -1,0 +1,2 @@
+MSG: [Error] : Unable to resolve reference to profile 'http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/finding'
+MSG: [Error] : Snapshot generation failed for profile with url 'http://hl7.org/fhir/uv/genomics-reporting/StructureDefinition/genotype'.

@@ -1,0 +1,23 @@
+JavaRunner.java:151: warning: [deprecation] <T>fetchResource(Class<T>,String) in IWorkerContext has been deprecated
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
+                                    ^
+  where T is a type-variable:
+    T extends Resource declared in method <T>fetchResource(Class<T>,String)
+1 warning
+EXCEPTION: NullPointerException: Cannot invoke "org.hl7.fhir.r5.model.DataType.copy()" because the return value of "org.hl7.fhir.r5.model.Extension.getValue()" is null
+java.lang.NullPointerException: Cannot invoke "org.hl7.fhir.r5.model.DataType.copy()" because the return value of "org.hl7.fhir.r5.model.Extension.getValue()" is null
+	at org.hl7.fhir.r5.conformance.profile.ProfileUtilities.updateFromDefinition(ProfileUtilities.java:2611)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processSimplePathWithOneMatchingElementInDifferential(ProfilePathProcessor.java:813)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processSimplePath(ProfilePathProcessor.java:297)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processPaths(ProfilePathProcessor.java:209)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processSimplePathWithEmptyDiffMatches(ProfilePathProcessor.java:1090)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processSimplePath(ProfilePathProcessor.java:294)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processPaths(ProfilePathProcessor.java:209)
+	at org.hl7.fhir.r5.conformance.profile.ProfilePathProcessor.processPaths(ProfilePathProcessor.java:181)
+	at org.hl7.fhir.r5.conformance.profile.ProfileUtilities.generateSnapshot(ProfileUtilities.java:839)
+	at JavaRunner.main(JavaRunner.java:132)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.execute(Main.java:484)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.run(Main.java:208)
+	at jdk.compiler/com.sun.tools.javac.launcher.Main.main(Main.java:135)

@@ -1,0 +1,3 @@
+EXCEPTION: NotSupportedException: Error generating snapshot. Recursive profile dependency detected for profile 'http://hl7.org/fhir/test/StructureDefinition/ext-recursion-2' on element ''.
+Profile url stack:
+Hl7.Fhir.Specification.Snapshot.SnapshotRecursionStack

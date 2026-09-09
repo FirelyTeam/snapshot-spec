@@ -1,0 +1,6 @@
+JavaRunner.java:151: warning: [deprecation] <T>fetchResource(Class<T>,String) in IWorkerContext has been deprecated
+    StructureDefinition sd = context.fetchResource(StructureDefinition.class, url);
+                                    ^
+  where T is a type-variable:
+    T extends Resource declared in method <T>fetchResource(Class<T>,String)
+1 warning

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DEV-031 control probe: identical to dev031-logical-base-input.xml but `a` is typed BackboneElement. -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="dev031-bbe"/>
+  <url value="http://example.org/fhir/StructureDefinition/Dev031Bbe"/>
+  <name value="Dev031Bbe"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="http://example.org/fhir/StructureDefinition/Dev031Bbe"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Element"/>
+  <derivation value="specialization"/>
+  <differential>
+    <element id="Dev031Bbe">
+      <path value="Dev031Bbe"/>
+      <short value="probe root"/>
+    </element>
+    <element id="Dev031Bbe.a">
+      <path value="Dev031Bbe.a"/>
+      <short value="a (type BackboneElement) with inline children"/>
+      <min value="0"/>
+      <max value="*"/>
+      <type>
+        <code value="BackboneElement"/>
+      </type>
+    </element>
+    <element id="Dev031Bbe.a.b">
+      <path value="Dev031Bbe.a.b"/>
+      <short value="b"/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+    </element>
+    <element id="Dev031Bbe.a.c">
+      <path value="Dev031Bbe.a.c"/>
+      <short value="c"/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+    </element>
+  </differential>
+</StructureDefinition>

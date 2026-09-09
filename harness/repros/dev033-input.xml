@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- DEV-033 / hapifhir/org.hl7.fhir.core#2584 minimized repro (trigger shape from the register):
+     outer non-extension slicing on Patient.identifier whose "sliceStuff" (rows between the slicing entry and
+     the first named slice) contains an extension slicing + extension slice E1 (data-absent-reason) + a
+     sliceName-less Patient.identifier.extension.value[x] row (mustSupport=true, authored for E1's value);
+     a named slice S1 containing a DIFFERENT extension slice E2 (rendered-value) with its own sliceName-less
+     value[x] row (short only).
+     Hypothesis (SnapshotGenerationPreProcessor @ b06c7ee, elementsMatch/pathsMatch :812-845 keyed on
+     (path modulo [x], sliceName-or-null) only): E1's value[x] constraints "match" E2's value[x] inside S1, so
+     S1.extension:e2.value[x] gains a mustSupport=true it never had (contamination) and E1's value[x] row is
+     never injected under S1 (silent loss). -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="dev033"/>
+  <url value="http://example.org/fhir/StructureDefinition/dev033"/>
+  <name value="Dev033CrossSliceContamination"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Patient"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Patient.identifier">
+      <path value="Patient.identifier"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="system"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Patient.identifier.extension">
+      <path value="Patient.identifier.extension"/>
+      <slicing>
+        <discriminator>
+          <type value="value"/>
+          <path value="url"/>
+        </discriminator>
+        <rules value="open"/>
+      </slicing>
+    </element>
+    <element id="Patient.identifier.extension:e1">
+      <path value="Patient.identifier.extension"/>
+      <sliceName value="e1"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/data-absent-reason"/>
+      </type>
+    </element>
+    <element id="Patient.identifier.extension:e1.value[x]">
+      <path value="Patient.identifier.extension.value[x]"/>
+      <mustSupport value="true"/>
+    </element>
+    <element id="Patient.identifier:S1">
+      <path value="Patient.identifier"/>
+      <sliceName value="S1"/>
+      <patternIdentifier>
+        <system value="http://example.org/ids/S1"/>
+      </patternIdentifier>
+    </element>
+    <element id="Patient.identifier:S1.extension:e2">
+      <path value="Patient.identifier.extension"/>
+      <sliceName value="e2"/>
+      <type>
+        <code value="Extension"/>
+        <profile value="http://hl7.org/fhir/StructureDefinition/rendered-value"/>
+      </type>
+    </element>
+    <element id="Patient.identifier:S1.extension:e2.value[x]">
+      <path value="Patient.identifier.extension.value[x]"/>
+      <short value="E2 value (authored short; no mustSupport authored here)"/>
+    </element>
+  </differential>
+</StructureDefinition>

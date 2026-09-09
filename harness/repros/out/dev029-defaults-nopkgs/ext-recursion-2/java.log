@@ -1,0 +1,1 @@
+MSG: [WARNING] StructureDefinition.snapshot.element[3]: The type of profile http://hl7.org/fhir/test/StructureDefinition/ext-recursion-2 cannot be checked as the profile is not known

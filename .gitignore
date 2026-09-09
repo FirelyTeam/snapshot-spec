@@ -1,0 +1,21 @@
+# Regenerable content — not tracked. Pins for every excluded item are in README.md / harness/README.md.
+
+# Sparse clones (separate git repositories; re-clone at the recorded commits)
+/org.hl7.fhir.core/
+/fhir-test-cases/
+/FHIR-Primer.wiki/
+
+# Downloads: validator_cli.jar (6.10.2, Git# d06577dbc5c6) and the package tarballs (versions in harness/README.md)
+/tools/*
+!/tools/zulip-search.sh
+
+# Generated harness output (one sweep regenerates it) and .NET build output
+/harness/out/
+/harness/runner-dotnet/bin/
+/harness/runner-dotnet/obj/
+/harness/__pycache__/
+**/__pycache__/
+
+# Never commit credentials (the Zulip key lives in ~/.zulip-fhir-key, outside this directory)
+*.key
+.zulip-fhir-key

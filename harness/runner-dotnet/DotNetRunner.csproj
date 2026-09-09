@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Pinned released SDK version: every harness diff is attributed to this exact pair:
+         .NET = NuGet Hl7.Fhir.R5 6.2.1, Java = validator_cli 6.10.2 (d06577dbc5c6).
+         NOTE: the DEV-018 fix (#3583) is NOT in 6.2.1 and will reproduce. -->
+    <RootNamespace>SnapshotHarness</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hl7.Fhir.R5" Version="6.2.1" />
+    <!-- Ships specification.zip (R5 core defs) for ZipSource.CreateValidationSource().
+         Java side uses fhir-test-cases' hl7.fhir.r5.core.tgz — both are published R5 5.0.0 core. -->
+    <PackageReference Include="Hl7.Fhir.Specification.Data.R5" Version="6.2.1" />
+    <!-- FhirPackageSource, for loading the same THO/uv.extensions/sdc/xver tgzs the Java
+         oracle loads (-pkgs flag; package-parity between the two sides). -->
+    <PackageReference Include="Firely.Fhir.Packages" Version="6.0.0" />
+  </ItemGroup>
+
+</Project>

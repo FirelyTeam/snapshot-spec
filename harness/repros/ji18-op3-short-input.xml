@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JI-18 repro: identical to fhir-test-cases profile-patient-op3-input.xml except for ONE added
+     differential row: Patient.birthDate with only a `short`. Obligation profile patient-op1 declares
+     mustSupport=true on Patient.birthDate and Patient.deceased[x]. Hypothesis (ProfileUtilities @ b06c7ee):
+     updateFromObligationProfiles (PU:2529-2582) runs only on the copy-through path (PPP:1068), so the
+     diff-touched birthDate loses the obligation mustSupport while the untouched deceased[x] keeps it. -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="patient-op3-short"/>
+  <extension url="http://hl7.org/fhir/StructureDefinition/inherit-obligations">
+    <valueCanonical value="http://hl7.org/fhir/tests/StructureDefinition/patient-op1"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/inherit-obligations">
+    <valueCanonical value="http://hl7.org/fhir/tests/StructureDefinition/patient-op2"/>
+  </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/inherit-obligations">
+    <valueCanonical value="http://hl7.org/fhir/tests/StructureDefinition/patient-op2a"/>
+  </extension>
+  <url value="http://hl7.org/fhir/tests/StructureDefinition/patient-op3-short"/>
+  <name value="PatientOP3Short"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Patient"/>
+  <baseDefinition value="http://hl7.org/fhir/tests/StructureDefinition/patient-op-base"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Patient.active">
+      <path value="Patient.active"/>
+      <min value="1"/>
+    </element>
+    <element id="Patient.birthDate">
+      <path value="Patient.birthDate"/>
+      <short value="Date of birth (short text changed by the derived profile only)"/>
+    </element>
+    <element id="Patient.maritalStatus">
+      <path value="Patient.maritalStatus"/>
+      <min value="1"/>
+    </element>
+  </differential>
+</StructureDefinition>

@@ -1,0 +1,118 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "Boo",
+  "url" : "http://example.org/StructureDefinition/Boo",
+  "version" : "0.1.0",
+  "name" : "Boo",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2020-01-06",
+  "copyright" : "IHE http://www.ihe.net/Governance/#Intellectual_Property",
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  }],
+  "kind" : "logical",
+  "abstract" : false,
+  "type" : "Goo",
+  "baseDefinition" : "http://example.org/StructureDefinition/Boo",
+  "derivation" : "specialization",
+  "snapshot" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version",
+      "valueString" : "0.1.0"
+    }],
+    "element" : [{
+      "id" : "Goo",
+      "path" : "Goo",
+      "short" : "Base for all types and resources",
+      "definition" : "Base definition for all types defined in FHIR type system.",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Base",
+        "min" : 0,
+        "max" : "*"
+      },
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "mapping" : [{
+        "identity" : "rim",
+        "map" : "n/a"
+      }]
+    },
+    {
+      "id" : "Goo.a",
+      "path" : "Goo.a",
+      "short" : "a",
+      "definition" : "parent",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Foo.a",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Goo.b",
+      "path" : "Goo.b",
+      "short" : "b",
+      "definition" : "child",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Boo.b",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    },
+    {
+      "id" : "Goo.c",
+      "path" : "Goo.c",
+      "short" : "c",
+      "definition" : "grandchild",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Goo.c",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  },
+  "differential" : {
+    "element" : [{
+      "id" : "Goo",
+      "path" : "Goo"
+    },
+    {
+      "id" : "Goo.c",
+      "path" : "Goo.c",
+      "short" : "c",
+      "definition" : "grandchild",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }]
+    }]
+  }
+}

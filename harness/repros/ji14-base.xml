@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- JI-14 repro, base profile: declares SD.mapping identity "m" (uri A) and uses it on Patient.active. -->
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="ji14-base"/>
+  <url value="http://example.org/fhir/StructureDefinition/ji14-base"/>
+  <name value="JI14Base"/>
+  <status value="draft"/>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="m"/>
+    <uri value="http://example.org/maps/A"/>
+    <name value="Map A (declared in the base profile)"/>
+  </mapping>
+  <kind value="resource"/>
+  <abstract value="false"/>
+  <type value="Patient"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Patient"/>
+  <derivation value="constraint"/>
+  <differential>
+    <element id="Patient.active">
+      <path value="Patient.active"/>
+      <mapping>
+        <identity value="m"/>
+        <map value="A.active (base mapping, identity m = Map A)"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
