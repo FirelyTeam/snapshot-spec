@@ -5,7 +5,7 @@ metadata:
   node_type: memory
   type: project
   originSessionId: e358eab0-d562-4968-9936-dca1f9c7680c
-  modified: 2026-09-09T14:58:53.876Z
+  modified: 2026-09-09T20:57:18.053Z
 ---
 
 # Snapshot-generation reverse-engineering project
@@ -13,7 +13,8 @@ metadata:
 ## Session protocol (multi-session work)
 
 - **Work unit = one packet per session**, sized to finish without context compaction: one chapter's deep-read (Phase 2/3), one harness milestone (Phase 4), one adjudication batch (Phase 5). Phases are too big for single sessions; packets are the subdivision.
-- **Session start:** read this file → `docs/snapshot-spec/README.md` status table → the NEXT UP line below. The user only needs to say "continue the snapshot spec project".
+- **LOCATION CHANGE 2026-09-09:** the document set was MOVED out of firely-net-sdk (branch `docs/snapshot-spec`, to be deleted) into the study's own repo **`C:\Git\snapshot-spec-materials` = github.com/FirelyTeam/snapshot-spec**, under `docs/` (history preserved via `git subtree split`). Everything below that says `docs/snapshot-spec/...` now means `C:\Git\snapshot-spec-materials\docs\...`; `harness/`, `extracts/`, `project-notes/` are siblings of `docs/` in the same repo. Work sessions should be started IN that directory (its own Claude memory folder holds a copy of this file). The SDK gets the *reimplementation* later, not the study.
+- **Session start:** read this file → `docs/README.md` status table (in the snapshot-spec repo) → the NEXT UP line below. The user only needs to say "continue the snapshot spec project".
 - **Session end (invariant):** every insight is externalized — document sections filled (never left only in conversation), ch13/ch14/ch15 updated, this file's phase status + NEXT UP updated, **and this file re-copied to `C:\Git\snapshot-spec-materials\project-notes\memory-snapshot-spec-project.md`, then `git commit` in `C:\Git\snapshot-spec-materials`** (that directory is a git repo since 2026-09-09 — tracks extracts/harness code/repros/R6-build HTML/project-notes, ignores clones/tools/out; Ewout adds the remote and pushes. The `.claude` folder is swept when the project idles; `project-notes\README.md` explains how to restore memory + plan from there). Use subagents for bulk reading; keep their outputs as durable extract files in `C:\Git\snapshot-spec-materials\extracts\`.
 - **Tell the user when to restart (user request, 2026-08-21):** when a packet completes, explicitly say so and recommend starting a fresh session (after updating NEXT UP). Also proactively recommend a restart mid-session if context is filling up or the next packet is a different kind of work. Never let the user guess when a restart is safe — say "this is a clean restart point" or "keep going, packet unfinished".
 - **NEXT UP: nothing pre-WGM is left except Ewouts own read of the brief.** ALL standing carry-ins CLOSED 2026-09-03 (packet WGM-4): DEV-029 default-settings .NET re-run done (throws settings-independent; Q15 caveat removed — a post-freeze factual correction), DEV-033 minimized repro built (harness/repros/dev033b-input.xml) and posted as a comment on hapifhir#2584, JI-18 verified = CRASH (NPE PU:2611, complex obligation ext) → filed **#2602**, JI-14 verified (+ rename lands in 

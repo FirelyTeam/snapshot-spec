@@ -1,7 +1,7 @@
 # Snapshot-spec harness — Java-oracle vs .NET three-way diff
 
-Phase 4 of the snapshot-spec project (see `docs/snapshot-spec/` in firely-net-sdk, branch
-`docs/snapshot-spec`). Compares, per fhir-test-cases snapshot-generation test:
+Phase 4 of the snapshot-spec project (document set in `../docs/` of this repository; until 2026-09-09 it lived
+in firely-net-sdk on branch `docs/snapshot-spec`). Compares, per fhir-test-cases snapshot-generation test:
 
 1. **.NET**: Firely SDK SnapshotGenerator — **NuGet `Hl7.Fhir.R5` 6.2.1** (pinned in
    `runner-dotnet/DotNetRunner.csproj`). Note: the DEV-018 fix (#3583) is NOT in 6.2.1 and

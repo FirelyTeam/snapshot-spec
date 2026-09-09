@@ -1,6 +1,7 @@
 # Project notes — salvaged copies of the `.claude`-resident project state
 
-The snapshot-spec project (see `C:\Git\firely-net-sdk\docs\snapshot-spec\`, branch `docs/snapshot-spec`) keeps
+The snapshot-spec project (document set in `../docs/`; until 2026-09-09 it lived on the Firely .NET SDK's
+`docs/snapshot-spec` branch) keeps
 its session protocol, phase status, NEXT UP pointer, settled decisions and materials map in Claude Code's
 per-project memory, and its original plan in Claude Code's plans folder. Both live under `%USERPROFILE%\.claude\`,
 which is swept automatically when a project goes idle. This folder holds copies so the project can be resumed
@@ -22,7 +23,10 @@ the sole record of that sweep — it was written to be exactly that.
 1. Copy `memory-snapshot-spec-project.md` back to `~/.claude/projects/C--Git-firely-net-sdk/memory/snapshot-spec-project.md`
    and append the line in `memory-index-line.md` to that folder's `MEMORY.md` (create the folder/file if missing).
 2. Say "continue the snapshot spec project". The memory's session protocol takes it from there:
-   memory → `docs/snapshot-spec/README.md` status table → NEXT UP.
+   memory → `docs/README.md` status table → NEXT UP. Note that Claude Code keys its memory folder on the
+   working directory: the memory was created under `C--Git-firely-net-sdk`; a copy was placed under
+   `C--Git-snapshot-spec-materials` on 2026-09-09 so a session started in this repository finds it too. If the
+   directory is renamed, restore the memory into the folder named after the new path.
 3. If even that is gone: the repo `README.md` status table plus `extracts/` and `upstream-java-issues.md`
    contain everything factual; only the working conventions (one packet per session, restart advice, "never post
    to Zulip", filing authorizations) live in the memory file.

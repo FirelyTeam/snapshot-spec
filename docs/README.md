@@ -65,21 +65,24 @@ the FHIR R6 normative wrap-up.
 ## Sources
 
 - FHIR R5/R4 spec pages: profiling, conformance-rules, elementdefinition(+definitions), structuredefinition,
-  extensibility, defining-extensions (local copies + extracts in the project materials directory, not
-  committed).
+  extensibility, defining-extensions (local copies in `../spec-html/`, extracts in `../extracts/`).
 - FHIR R6 CI build (build.fhir.org): the same pages, snapshotted as **v6.0.0-ballot4** (build generated
   2026-08-18, fetched 2026-08-21) — R6 findings in this document refer to that snapshot unless stated
   otherwise.
-- .NET: `src/Hl7.Fhir.Conformance/Specification/Snapshot/` (+ `Hl7.Fhir.Shims.Base` infrastructure).
-- Java: `org.hl7.fhir.r5/.../conformance/profile/` (ProfileUtilities, ProfilePathProcessor,
-  SnapshotGenerationPreProcessor) and its manifest-driven test driver.
+- .NET: `FirelyTeam/firely-net-sdk`, `src/Hl7.Fhir.Conformance/Specification/Snapshot/` (+ `Hl7.Fhir.Shims.Base`
+  infrastructure); code citations at release 6.2.1.
+- Java: `hapifhir/org.hl7.fhir.core`, `org.hl7.fhir.r5/.../conformance/profile/` (ProfileUtilities,
+  ProfilePathProcessor, SnapshotGenerationPreProcessor) and its manifest-driven test driver; citations at
+  commit b06c7ee.
 - Shared test cases: `FHIR/fhir-test-cases` `r5|r4b/snapshot-generation` (166 R5 manifest tests; 64 vendored
-  in this repo under `src/Hl7.Fhir.Specification.Shared.Tests/TestData/snapshot-test/Type Slicing/`).
-- Project materials (not committed; local directory `snapshot-spec-materials` next to this repo): sparse clones of
-  `org.hl7.fhir.core` and `fhir-test-cases`, spec HTML, the three-way harness (`harness/`), durable extracts
-  (`extracts/`), the upstream-issue log, and `project-notes/` — copies of the working plan and the session
-  memory that drive the multi-session protocol, with a README on how to resume the project from them.
-- History: GitHub issues (this repo), chat.fhir.org (#conformance is the primary venue; #implementers also
+  in the .NET SDK under `src/Hl7.Fhir.Specification.Shared.Tests/TestData/snapshot-test/Type Slicing/`).
+- Project materials: the rest of this repository — sparse clones of `org.hl7.fhir.core` and `fhir-test-cases`
+  (ignored, pins in the top-level README), spec HTML (`../spec-html/`), the three-way harness (`../harness/`),
+  durable extracts (`../extracts/`), the upstream-issue log (`../upstream-java-issues.md`), and
+  `../project-notes/` — copies of the working plan and the session memory that drive the multi-session
+  protocol, with a README on how to resume the project from them. This document set lived on the SDK's
+  `docs/snapshot-spec` branch until 2026-09-09 and was moved here with its history.
+- History: GitHub issues (both engine repositories), chat.fhir.org (#conformance is the primary venue; #implementers also
   carries relevant threads — too large to scan, but both are covered by full-text search across all public
   streams via the Zulip API), jira.hl7.org.
 - Prior art: [FHIR-13402](https://jira.hl7.org/browse/FHIR-13402) "Clarify snapshot generation rules"

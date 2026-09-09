@@ -46,8 +46,9 @@ code is the object of study, not the patient.
 
 ## What comes out of it
 
-The deliverable is the document set in the Firely .NET SDK repository, branch `docs/snapshot-spec`, directory
-`docs/snapshot-spec/`:
+The deliverable is the document set in **`docs/` of this repository** (it began life on the Firely .NET SDK's
+`docs/snapshot-spec` branch and was moved here on 2026-09-09 with its history; the SDK will receive the
+*results* — a reimplementation — later, not the study):
 
 - **Chapters 1–12** — the algorithm: preprocessing, base resolution and rebasing, element matching, per-property
   merge, slicing, type-profile and extension expansion, contentReference, logical models, ids, recursion, errors
@@ -66,14 +67,14 @@ chapters 13–15 and the JIRA/Zulip venues (FHIR-31405 is the live ticket for th
 
 ## This repository
 
-This repository holds the **irreplaceable** part of the study's working materials (about 10 MB). Everything
-regenerable is ignored (see `.gitignore`) and re-creatable from the pins below. The document set itself is in the
-SDK repository, not here.
+This repository holds the document set and the **irreplaceable** part of the study's working materials (about
+12 MB). Everything regenerable is ignored (see `.gitignore`) and re-creatable from the pins below.
 
 ### Tracked
 
 | path | what |
 |---|---|
+| `docs/` | **The document set:** `README.md` (status table, chapter list, methodology), chapters `01`–`12`, `13-deviation-register.md`, `14-open-questions.md`, `15-spec-rfcs.md`, `wgm-brief-2026-09.md`. Start with `docs/README.md`. |
 | `extracts/` | Durable outputs of every deep-read, orientation map, harness mining pass and the Zulip/JIRA prior-discussion sweeps (2026-08-21 → 2026-09-03). The sweeps are the record; the raw API output is mostly gone. |
 | `harness/` | The three-way test harness (Java oracle in JUnit-driver configuration, .NET runner, golden-file compare): `BatchRunner.java`, `JavaRunner.java`, `Compare.java`, `ProbeRunner.java`, `run_tests.py`, `report.py`, `runner-dotnet/` sources, `README.md` (configuration, pins, noise ledger). |
 | `harness/repros/` | Standalone repro inputs and their outputs for the bugs filed upstream, plus the issue texts as filed. |
